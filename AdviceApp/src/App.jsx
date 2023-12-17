@@ -73,9 +73,11 @@ function App() {
         <SavedAdviceModal>
           <SavedAdviceContent>
             <h2>Saved Advice</h2>
-            {uniqueSave.map((saved, index) => (
-              <li key={index}>{saved}</li>
-            ))}
+            {uniqueSave.length > 0 ? (
+              uniqueSave.map((saved, index) => <li key={index}>{saved}</li>)
+            ) : (
+              <p>Saved advices will appear here</p>
+            )}
             <CloseButton onClick={hideSavedModal}>Close</CloseButton>
           </SavedAdviceContent>
         </SavedAdviceModal>
@@ -117,6 +119,7 @@ const SavedAdviceContent = styled.div`
 `;
 
 const CloseButton = styled.button`
+  /* background-color: rgb(180, 226, 245); */
   background-color: rgb(233, 245, 126);
   color: black;
   padding: 10px 20px;
@@ -128,5 +131,6 @@ const CloseButton = styled.button`
 
   &:hover {
     background-color: #e9d149;
+    /* background-color: #7272f5; */
   }
 `;
